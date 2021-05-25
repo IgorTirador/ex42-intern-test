@@ -6,7 +6,7 @@ docker build . -t redmine
 ```
 Запустить можно следующей командой:
 ```
-docker run -d --rm -p 80:80 redmine
+docker run --rm -p 80:80 redmine
 ```
 Для проверки перейти на http://localhost, дефолтные логин и пароль - admin/admin
 
