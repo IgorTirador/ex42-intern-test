@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    build: postgresql
+    image: postgresql
+    environment:
+      - PG_USER=redmine
+      - PG_PASSWORD=9zgYOSd8wi*6(2R,=/Uv
+      - PG_DB=redmine
+  app:
+    build: redmine
+    image: redmine
+    environment:
+      - DB_HOST=db
+      - DB_NAME=redmine
+      - DB_USER=redmine
+      - DB_PASSWORD=9zgYOSd8wi*6(2R,=/Uv
+    depends_on:
+      - db
+  web:
+    build: nginx
+    image: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app

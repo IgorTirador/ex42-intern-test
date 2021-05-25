@@ -1,0 +1,20 @@
+language: bash
+
+services:
+  - docker
+
+before_install:
+  - docker build task-01 -t redmine:${TRAVIS_COMMIT}
+  - docker run -d -p "80:80" redmine:${TRAVIS_COMMIT}
+
+script:
+  - echo "Waiting for container initialization..."
+  - sleep 20
+  - curl -v localhost
+
+after_success:
+  - docker tag redmine:${TRAVIS_COMMIT} igortirador/redmine:${TRAVIS_COMMIT}
+  - docker tag redmine:${TRAVIS_COMMIT} igortirador/redmine:latest
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker push igortirador/redmine:${TRAVIS_COMMIT}
+  - docker push igortirador/redmine:latest
