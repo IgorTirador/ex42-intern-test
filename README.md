@@ -6,7 +6,7 @@ docker build . -t redmine
 ```
 Запустить можно следующей командой:
 ```
-docker run --d  -rm -p 80:80 redmine
+docker run -d --rm -p 80:80 redmine
 ```
 Второй задачей было разбить установку на три контейнера - БД, сервер приложений (Redmine+puma), фронтенд (nginx) при помощи приложения Docker-compose.
 Запустить и проверить можно из папки task-02:
