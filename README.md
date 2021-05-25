@@ -20,4 +20,4 @@ docker-compose up --build
 Был подключен Travis CI для сборки docker образа Redmine, его тестирования и публикации на docker hub.
 Образ на Docker hub [тут](https://hub.docker.com/repository/docker/igortirador/redmine).
 Также был использован alphine для уменьшения образа.
-Билд лог прикладываю [тут](https://travis-ci.com/github/IgorTirador/ex42-intern-test/jobs/507863619)
+Билд лог прикладываю [тут](https://travis-ci.com/github/IgorTirador/ex42-intern-test/builds)
